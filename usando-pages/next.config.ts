@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
   i18n: {
     locales: ['pt', 'en'],
     defaultLocale: 'pt'
+  },
+  images: {
+    domains: ['dummyimage.com']
   }
 };
 
