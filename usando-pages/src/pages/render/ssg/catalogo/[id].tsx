@@ -4,10 +4,10 @@ import Pagina from "@/components/Pagina";
 import filmes from "@/data/filmes";
 
 export function getStaticPaths() {
-    const paths = filmes.map(filme => {
+    const paths = filmes.slice(0, 5).map(filme => {
         return { params: { id: filme.id } }
     })
-    return { paths, fallback: false }
+    return { paths, fallback: true }
 }
 
 export function getStaticProps({ params }: any) {
@@ -26,6 +26,8 @@ export function getStaticProps({ params }: any) {
 
 export default function PaginaCatalogo(props: any) {
     const { filme, numero, total, idAnterior, proximoId } = props
+
+    if (!filme) return null
 
     return (
         <Pagina>
